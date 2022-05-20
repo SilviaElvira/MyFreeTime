@@ -10,14 +10,14 @@ import com.myfreetime.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UsuarioServiceImpl implements UsuarioService {
+public class UsuarioRegsitroServiceImpl implements UsuarioRegistroService {
 	
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 
 	@Override
 	public Usuario guardar(UsuarioRegistroDTO registroDTO) {
-		Usuario usuario = new Usuario(registroDTO.getNombre(), registroDTO.getApellido(), registroDTO.getEmail(),
+		Usuario usuario = new Usuario(registroDTO.getNombre(), registroDTO.getApellidos(), registroDTO.getEmail(),
 				registroDTO.getPassword(), Arrays.asList(new Rol("ROLE_USER")));
 		return usuarioRepository.save(usuario);
 	}
