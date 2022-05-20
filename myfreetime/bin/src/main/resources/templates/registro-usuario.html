@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+	<title>Registro Usuario</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+	<header th:replace="layout/plantilla :: header"></header>
+	<br>
+	<br>
+	<div class="container">
+		<div class="row justify-content-center align-items-center">
+			<div class="col-md-6 col-md-offset-3 text-center">
+				<h1>Registro usuarios</h1>
+				<form th:action="@{/registro-usuario}" method="post" th:object="${usuario}">
+					<div th:if=${param.exito}>
+						<div class="alert alert-info">Se ha registrado correctamente en la aplicación</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="nombre">Nombre : </label> 
+						<input id="nombre" type="text" class="form-control" th:field="*{nombre}" required autofocus="autofocus">
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for="apellidos">Apellidos : </label> 
+						<input id="apellidos" class="form-control" th:field="*{apellidos}" required autofocus="autofocus">
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for="email">Email : </label> 
+						<input id="email" type="email" class="form-control" th:field="*{email}" required autofocus="autofocus">
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for="password">Password : </label> 
+						<input type="password" id="password" class="form-control" th:field="*{password}" required autofocus="autofocus">
+					</div>
+
+					<div class="form-group">
+						<div class="row justify-content-center align-items-center">
+							<button type="submit" class="btn btn-success">Registrar</button>
+						</div>
+							<br/>
+						<div class="text-center">
+							<span>Si eres un usuario registrado <a th:href="@{/login-usuario}">inicia sesión aquí</a></span>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout/plantilla :: footer"></footer>
+</body>
+</html>
