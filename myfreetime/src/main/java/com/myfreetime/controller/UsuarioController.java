@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import com.myfreetime.dto.UsuarioRegistroDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import com.myfreetime.service.UsuarioRegistroService;
 import org.springframework.stereotype.Controller;
 
@@ -26,7 +27,7 @@ public class UsuarioController {
     
     @GetMapping("/login-usuario")
     public String mostrarLoginUsuario() {
-        return "login-usuario";
+    	return "login-usuario";
     }
     
     @PostMapping("/registro-usuario")
@@ -35,8 +36,8 @@ public class UsuarioController {
         return "redirect:/registro-usuario?exito";
     }
     
-    @PostMapping("/login-usuario")
-    public String inicio() {
-        return "/actividades";
+    @GetMapping("/actividades")
+    public String verActividades() {
+        return "actividades";
     }
 }
