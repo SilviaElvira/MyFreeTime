@@ -4,8 +4,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.context.annotation.Bean;
-import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
-import org.springframework.security.config.annotation.web.configurers.FormLoginConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.myfreetime.service.UsuarioLoginServiceImpl;
@@ -35,13 +33,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login-usuario")
                 .permitAll()
                 .defaultSuccessUrl("/actividades")
-                .failureUrl("/login?error=true")
+                .failureUrl("/login-usuario?error=true")
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .and()
             .logout()
                 .permitAll()
-                .logoutSuccessUrl("/");
+                .logoutSuccessUrl("/login-usuario?logout");
     }
     
     @Bean
