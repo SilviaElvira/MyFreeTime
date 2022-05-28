@@ -18,8 +18,8 @@
 	<div class="container">
 		<div class="row justify-content-center align-items-center">
 			<div class="col-md-6 col-md-offset-3 text-center">
-				<h1>Inicio de sesión usuario</h1>
-				<form th:action="@{/login-usuario}" method="post">
+				<h1>Inicio de sesión</h1>
+				<form th:action="@{/login}" method="post">
 
 					<div th:if=${param.error}>
 						<div class="alert alert-danger">Usuario o contraseña no válidos</div>
@@ -47,9 +47,6 @@
 						</div>
 					</div>
 				</form>
-				<div class="form-group">
-					<span>Si eres nuevo usuario <a th:href="@{/registro-usuario}">regístrate aquí</a></span>
-				</div>
 			</div>
 		</div>
 	</div>

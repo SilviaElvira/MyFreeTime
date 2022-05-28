@@ -6,6 +6,8 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.myfreetime.service.EmpresaLoginServiceImpl;
 import com.myfreetime.service.UsuarioLoginServiceImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -21,25 +23,28 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     UsuarioLoginServiceImpl usuarioLoginService;
     
+    @Autowired
+    EmpresaLoginServiceImpl empresaLoginService;
+    
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-	        .antMatchers("/", "/login-usuario", "/registro-usuario", "/login-empresa", "/registro-empresa", "/resources/**", "/static/**","/webjars/**").permitAll()
+	        .antMatchers("/", "/login", "/registro-usuario", "/registro-empresa", "/resources/**", "/static/**","/webjars/**").permitAll()
 	        .antMatchers("/admin*").access("hasRole('ADMIN')")
 	        .antMatchers("/actividades*").access("hasRole('USER') or hasRole('ADMIN')")
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
-                .loginPage("/login-usuario")
+                .loginPage("/login")
                 .permitAll()
                 .defaultSuccessUrl("/actividades")
-                .failureUrl("/login-usuario?error=true")
+                .failureUrl("/login?error=true")
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .and()
             .logout()
                 .permitAll()
-                .logoutSuccessUrl("/login-usuario?logout");
+                .logoutSuccessUrl("/login?logout");
     }
     
     @Bean
@@ -48,8 +53,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
     
     @Autowired
-    public void configureGlobal(final AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService((UserDetailsService)this.usuarioLoginService).passwordEncoder((PasswordEncoder)this.passwordEncoder());
-    }
-    
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    	if(usuarioLoginService != null) {
+    	auth.userDetailsService((UserDetailsService)usuarioLoginService).passwordEncoder((PasswordEncoder)passwordEncoder());
+    	}
+    	if(empresaLoginService != null) {
+        	auth.userDetailsService((UserDetailsService)empresaLoginService).passwordEncoder((PasswordEncoder)passwordEncoder());
+        	}
+    } 
 }

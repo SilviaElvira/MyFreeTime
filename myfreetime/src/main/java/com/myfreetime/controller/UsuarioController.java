@@ -24,20 +24,10 @@ public class UsuarioController {
     public String mostrarRegistroUsuario() {
         return "registro-usuario";
     }
-    
-    @GetMapping("/login-usuario")
-    public String mostrarLoginUsuario() {
-    	return "login-usuario";
-    }
-    
+       
     @PostMapping("/registro-usuario")
     public String registrarCuentaUsuario(@ModelAttribute("usuario") final UsuarioRegistroDTO registroDTO) {
         this.usuarioService.guardar(registroDTO);
         return "redirect:/registro-usuario?exito";
-    }
-    
-    @GetMapping("/actividades")
-    public String verActividades() {
-        return "actividades";
     }
 }

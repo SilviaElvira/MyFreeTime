@@ -3,7 +3,7 @@
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-	<title>Registro Usuario</title>
+	<title>Registro Empresa</title>
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 	<link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
@@ -18,8 +18,8 @@
 	<div class="container">
 		<div class="row justify-content-center align-items-center">
 			<div class="col-md-6 col-md-offset-3 text-center">
-				<h1>Registro usuarios</h1>
-				<form th:action="@{/registro-usuario}" method="post" th:object="${usuario}">
+				<h1>Registro empresa</h1>
+				<form th:action="@{/registro-empresa}" method="post" th:object="${empresa}">
 					<div th:if=${param.exito}>
 						<div class="alert alert-info">Se ha registrado correctamente en la aplicación</div>
 					</div>

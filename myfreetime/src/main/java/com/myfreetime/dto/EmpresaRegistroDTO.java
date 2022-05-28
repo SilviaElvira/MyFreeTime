@@ -2,8 +2,9 @@ package com.myfreetime.dto;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-public class UsuarioRegistroDTO {
-    private Long id;
+public class EmpresaRegistroDTO {
+
+	private Long id;
     private String nombre;
     private String apellidos;
     private String email;
@@ -50,7 +51,7 @@ public class UsuarioRegistroDTO {
         this.password = bCryptPasswordEncoder.encode((CharSequence)password);
     }
     
-    public UsuarioRegistroDTO(final Long id, final String nombre, final String apellidos, final String email, final String password) {
+    public EmpresaRegistroDTO(final Long id, final String nombre, final String apellidos, final String email, final String password) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -58,17 +59,17 @@ public class UsuarioRegistroDTO {
         this.password = password;
     }
     
-    public UsuarioRegistroDTO(final String nombre, final String apellidos, final String email, final String password) {
+    public EmpresaRegistroDTO(final String nombre, final String apellidos, final String email, final String password) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.email = email;
         this.password = password;
     }
     
-    public UsuarioRegistroDTO(final String email) {
+    public EmpresaRegistroDTO(final String email) {
         this.email = email;
     }
     
-    public UsuarioRegistroDTO() {
+    public EmpresaRegistroDTO() {
     }
 }

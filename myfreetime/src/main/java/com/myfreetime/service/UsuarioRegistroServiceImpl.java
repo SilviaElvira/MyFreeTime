@@ -1,6 +1,5 @@
 package com.myfreetime.service;
 
-import java.util.Collection;
 import java.util.Arrays;
 import com.myfreetime.model.Rol;
 import com.myfreetime.model.Usuario;
@@ -10,7 +9,7 @@ import com.myfreetime.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UsuarioRegsitroServiceImpl implements UsuarioRegistroService {
+public class UsuarioRegistroServiceImpl implements UsuarioRegistroService {
 	
 	@Autowired
 	private UsuarioRepository usuarioRepository;

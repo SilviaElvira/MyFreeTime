@@ -1,7 +1,7 @@
 package com.myfreetime.service;
 
-import com.myfreetime.model.*;
-import com.myfreetime.dto.*;
+import com.myfreetime.model.Usuario;
+import com.myfreetime.dto.UsuarioRegistroDTO;
 
 public interface UsuarioRegistroService
 {

@@ -1,7 +1,6 @@
 package com.myfreetime.service;
 
 import org.springframework.security.core.GrantedAuthority;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Collection;
 import org.springframework.security.core.userdetails.User;

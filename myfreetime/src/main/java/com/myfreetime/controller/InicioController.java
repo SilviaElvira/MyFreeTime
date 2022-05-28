@@ -10,4 +10,14 @@ public class InicioController {
     public String mostrarIndex() {
         return "index";
     }
+    
+    @GetMapping("/login")
+    public String mostrarLoginUsuario() {
+    	return "login";
+    }
+    
+	@GetMapping("/actividades")
+    public String verActividades() {
+        return "actividades";
+	}
 }

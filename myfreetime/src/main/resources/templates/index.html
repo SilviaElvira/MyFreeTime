@@ -16,17 +16,21 @@
 	<section id="main-header" class="py-2 bg-info text-white">
 		<div class="text-center">
 			<h1>INICIAR SESIÓN</h1>
+			<a th:href="@{/login}" class="nav-link text-secondary">
+			<i class="fas"></i>[AQUÍ]
+			</a>
+			<h3>REGISTRARSE</h3>
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
 					<form>
-						<a th:href="@{/login-usuario}" class="nav-link text-secondary">
+						<a th:href="@{/registro-usuario}" class="nav-link text-secondary">
 							<i class="fas fa-user"></i> USUARIO
 						</a>
 					</form>
 				</li>
 				<li class="nav-item">
 					<form>
-						<a th:href="@{/login-empresa}" class="nav-link text-secondary">
+						<a th:href="@{/registro-empresa}" class="nav-link text-secondary">
 							<i class="fas fa-cog"></i> EMPRESA
 						</a>
 					</form>
