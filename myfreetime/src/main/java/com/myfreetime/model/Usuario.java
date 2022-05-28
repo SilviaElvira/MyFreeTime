@@ -31,54 +31,54 @@ public class Usuario {
     private Collection<Rol> roles;
     
     public Long getId() {
-        return this.id;
+        return id;
     }
     
-    public void setId(final Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
     
     public String getNombre() {
-        return this.nombre;
+        return nombre;
     }
     
-    public void setNombre(final String nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
     
     public String getApellidos() {
-        return this.apellidos;
+        return apellidos;
     }
     
-    public void setApellidos(final String apellidos) {
+    public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
     }
     
     public String getEmail() {
-        return this.email;
+        return email;
     }
     
-    public void setEmail(final String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
     
     public String getPassword() {
-        return this.password;
+        return password;
     }
     
-    public void setPassword(final String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
     
     public Collection<Rol> getRoles() {
-        return this.roles;
+        return roles;
     }
     
-    public void setRoles(final Collection<Rol> roles) {
+    public void setRoles(Collection<Rol> roles) {
         this.roles = roles;
     }
     
-    public Usuario(final Long id, final String nombre, final String apellidos, final String email, final String password, final Collection<Rol> roles) {
+    public Usuario(Long id, String nombre, String apellidos, String email, String password, Collection<Rol> roles) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -87,7 +87,7 @@ public class Usuario {
         this.roles = roles;
     }
     
-    public Usuario(final String nombre, final String apellidos, final String email, final String password, final Collection<Rol> roles) {
+    public Usuario(String nombre, String apellidos, String email, String password, Collection<Rol> roles) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.email = email;

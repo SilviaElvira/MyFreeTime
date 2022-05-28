@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+	<title>Registro de Producto</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+	<header th:replace="layout/plantilla :: header"></header>
+	<div class="container">
+		<div class="row justify-content-center align-items-center">
+			<div class="col-md-6 col-md-offset-3 text-center">
+				<h1>REGISTRAR PRODUCTO</h1>
+				<form th:action="@{/registro-actividades}" method="post" th:object="${producto}">
+					<div th:if=${param.exito}>
+						<div class="alert alert-info">Se ha registrado correctamente su producto</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="nombre">Nombre : </label> 
+						<input id="nombre" type="text" class="form-control" th:field="*{nombre}" required autofocus="autofocus" placeholder="Nombre de la empresa">
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for="actividad">Actividad : </label> 
+						<input id="actividad" type="text" class="form-control" th:field="*{actividad}" required autofocus="autofocus" placeholder="Actividad a realizar: Escalada, Natación...">
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for="descripcion">Descripcion : </label> 
+						<input id="descripcion" type="text" class="form-control" th:field="*{descripcion}" required autofocus="autofocus" placeholder="Descripción de la actividad, número de clases semanales...">
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for="precio">Precio : </label> 
+						<input id="precio" type="number" class="form-control" th:field="*{precio}" required autofocus="autofocus" placeholder="Precio mensual">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="provincia">Provincia : </label> 
+						<input id="provincia" type="text" class="form-control" th:field="*{provincia}" required autofocus="autofocus" placeholder="Provincia de la empresa">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="localidad">Localidad : </label> 
+						<input id="localidad" type="text" class="form-control" th:field="*{localidad}" required autofocus="autofocus" placeholder="Localidad de la empresa">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="imparticion">Impartición : </label> 
+						<input id="imparticion" type="text" class="form-control" th:field="*{imparticion}" required autofocus="autofocus" placeholder="Presencial u Online">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="telefono">Telefono : </label> 
+						<input id="telefono" type="text" class="form-control" th:field="*{telefono}" required autofocus="autofocus" placeholder="Teléfono de contacto">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="email">Email : </label> 
+						<input id="email" type="text" class="form-control" th:field="*{email}" required autofocus="autofocus" placeholder="Email de contacto">
+					</div>
+
+					<div class="form-group">
+						<div class="row justify-content-center align-items-center">
+							<button type="submit" class="btn btn-success">Registrar</button>
+						</div>
+							<br/>
+					</div>
+				</form>
+				<h4 class="text-secondary text-center">
+					Para eliminar/editar cualquier producto contacta con nosotros enviando un email a
+				</h4 >
+				<br/>
+				<h4 class="text-secondary text-center">silvia-elvira@myfreetime.com</h4>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout/plantilla :: footer"></footer>
+</body>
+</html>

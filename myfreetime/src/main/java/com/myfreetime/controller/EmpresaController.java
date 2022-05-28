@@ -26,8 +26,8 @@ public class EmpresaController {
     }
 	
 	@PostMapping("/registro-empresa")
-    public String registrarCuentaEmpresa(@ModelAttribute("empresa") final EmpresaRegistroDTO registroDTO) {
-		this.empresaService.guardar(registroDTO);
+    public String registrarCuentaEmpresa(@ModelAttribute("empresa") EmpresaRegistroDTO registroDTO) {
+		empresaService.guardar(registroDTO);
 		return "redirect:/registro-empresa?exito";
 	}
 }

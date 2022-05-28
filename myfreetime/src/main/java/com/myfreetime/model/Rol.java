@@ -15,27 +15,27 @@ public class Rol {
 	private String nombre;
 
 	public Long getId() {
-		return this.id;
+		return id;
 	}
 
-	public void setId(final Long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
 	public String getNombre() {
-		return this.nombre;
+		return nombre;
 	}
 
-	public void setNombre(final String nombre) {
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
-	public Rol(final Long id, final String nombre) {
+	public Rol(Long id, String nombre) {
 		this.id = id;
 		this.nombre = nombre;
 	}
 
-	public Rol(final String nombre) {
+	public Rol(String nombre) {
 		this.nombre = nombre;
 	}
 

@@ -26,8 +26,8 @@ public class UsuarioController {
     }
        
     @PostMapping("/registro-usuario")
-    public String registrarCuentaUsuario(@ModelAttribute("usuario") final UsuarioRegistroDTO registroDTO) {
-        this.usuarioService.guardar(registroDTO);
+    public String registrarCuentaUsuario(@ModelAttribute("usuario") UsuarioRegistroDTO registroDTO) {
+        usuarioService.guardar(registroDTO);
         return "redirect:/registro-usuario?exito";
     }
 }

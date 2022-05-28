@@ -15,9 +15,4 @@ public class InicioController {
     public String mostrarLoginUsuario() {
     	return "login";
     }
-    
-	@GetMapping("/actividades")
-    public String verActividades() {
-        return "actividades";
-	}
 }

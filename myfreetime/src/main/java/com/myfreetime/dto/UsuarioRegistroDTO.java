@@ -10,7 +10,7 @@ public class UsuarioRegistroDTO {
     private String password;
     
     public Long getId() {
-        return this.id;
+        return id;
     }
     
     public void setId(final Long id) {
@@ -18,7 +18,7 @@ public class UsuarioRegistroDTO {
     }
     
     public String getNombre() {
-        return this.nombre;
+        return nombre;
     }
     
     public void setNombre(final String nombre) {
@@ -26,7 +26,7 @@ public class UsuarioRegistroDTO {
     }
     
     public String getApellidos() {
-        return this.apellidos;
+        return apellidos;
     }
     
     public void setApellidos(final String apellidos) {
@@ -34,7 +34,7 @@ public class UsuarioRegistroDTO {
     }
     
     public String getEmail() {
-        return this.email;
+        return email;
     }
     
     public void setEmail(final String email) {
@@ -42,7 +42,7 @@ public class UsuarioRegistroDTO {
     }
     
     public String getPassword() {
-        return this.password;
+        return password;
     }
     
     public void setPassword(final String password) {

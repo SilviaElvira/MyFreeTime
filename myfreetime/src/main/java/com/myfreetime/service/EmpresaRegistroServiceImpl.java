@@ -18,7 +18,7 @@ public class EmpresaRegistroServiceImpl implements EmpresaRegistroService{
 	
 	@Override
 	public Empresa guardar(EmpresaRegistroDTO registroDTO) {
-		Empresa empresa = new Empresa(registroDTO.getNombre(), registroDTO.getApellidos(), registroDTO.getEmail(),
+		Empresa empresa = new Empresa(registroDTO.getNombre(), registroDTO.getEmail(),
 				registroDTO.getPassword(), Arrays.asList(new Rol("ROLE_ADMIN")));
 		return empresaRepository.save(empresa);
 	}

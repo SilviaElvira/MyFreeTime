@@ -13,7 +13,55 @@
 </head>
 <body>
 	<header th:replace="layout/plantilla :: header"></header>
-
+      	<div class="container">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="card">
+                      <div class="card-header">
+                          <h4>ACTIVIDADES</h4>
+                      </div>
+                      <div th:if="${producto != null}">
+                          <table class="table table-stryped">
+                              <thead class="thead-dark">
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Actividad</th>
+                                    <th>Descripción</th>
+                                    <th>Precio</th>
+                                    <th>Provincia</th>
+                                    <th>Localidad</th>
+                                    <th>Impartición</th>
+                                    <th>Teléfono</th>
+                                    <th>Email</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr th:each="producto: ${producto}">
+                                    <td th:text= "${producto.nombre}"></td>
+                                    <td th:text= "${producto.actividad}"></td>
+                                    <td th:text= "${producto.descripcion}"></td>
+                                    <td th:text= "${producto.precio}"></td>
+                                    <td th:text= "${producto.provincia}"></td>
+                                    <td th:text= "${producto.localidad}"></td>
+                                    <td th:text= "${producto.imparticion}"></td>
+                                    <td th:text= "${producto.telefono}"></td>
+                                    <td th:text= "${producto.email}"></td>
+                                </tr>
+                           	</tbody>
+                          </table>
+                      </div>
+                      <div class="text-center p-2" th:if="${producto == null}">
+                          <span>Lista vacía</span>
+                      </div>
+                  </div>
+                  <div class="text-center">
+                      <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/registro-actividades/}">REGISTRAR PRODUCTO</a>
+                  </div>
+              </div>
+          </div>
+      </div>
 	<footer th:replace="layout/plantilla :: footer"></footer>
 </body>
 </html>

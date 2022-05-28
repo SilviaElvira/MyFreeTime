@@ -21,11 +21,11 @@ public class UsuarioLoginServiceImpl implements UserDetailsService {
     @Autowired
     UsuarioRepository usuarioRepository;
     
-    public UserDetails loadUserByUsername(final String email) throws UsernameNotFoundException {
-        final Usuario appUser = usuarioRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("No existe el usuario"));
-        final List grantList = new ArrayList();
-        for (final Rol authority : appUser.getRoles()) {
-            final GrantedAuthority grantedAuthority = (GrantedAuthority)new SimpleGrantedAuthority(authority.getNombre());
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Usuario appUser = usuarioRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("No existe el usuario"));
+        List grantList = new ArrayList();
+        for (Rol authority : appUser.getRoles()) {
+            GrantedAuthority grantedAuthority = (GrantedAuthority)new SimpleGrantedAuthority(authority.getNombre());
             grantList.add(grantedAuthority);
         }
         final UserDetails usuario = (UserDetails)new User(appUser.getEmail(), appUser.getPassword(), (Collection)grantList);

@@ -10,5 +10,5 @@ import com.myfreetime.model.Empresa;
 @Repository
 public interface EmpresaRepository extends JpaRepository<Empresa, Long> {
 
-	Optional<Empresa> findByEmail(final String email);
+	Optional<Empresa> findByEmail(String email);
 }
