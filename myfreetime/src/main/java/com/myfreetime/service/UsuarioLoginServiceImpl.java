@@ -28,7 +28,7 @@ public class UsuarioLoginServiceImpl implements UserDetailsService {
             GrantedAuthority grantedAuthority = (GrantedAuthority)new SimpleGrantedAuthority(authority.getNombre());
             grantList.add(grantedAuthority);
         }
-        final UserDetails usuario = (UserDetails)new User(appUser.getEmail(), appUser.getPassword(), (Collection)grantList);
+        UserDetails usuario = (UserDetails)new User(appUser.getEmail(), appUser.getPassword(), (Collection)grantList);
         return usuario;
     }
 }

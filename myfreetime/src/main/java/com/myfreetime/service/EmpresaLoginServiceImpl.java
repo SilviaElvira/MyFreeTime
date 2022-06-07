@@ -24,13 +24,13 @@ public class EmpresaLoginServiceImpl implements UserDetailsService {
 	EmpresaRepository empresaRepository;
 	
 	public UserDetails loadUserByUsername(final String email) throws UsernameNotFoundException {
-		final Empresa appUser = empresaRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("No existe el usuario"));
-		final List grantList = new ArrayList();
+		Empresa appUser = empresaRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("No existe el usuario"));
+		List grantList = new ArrayList();
 		for (final Rol authority : appUser.getRoles()) {
 			final GrantedAuthority grantedAuthority = (GrantedAuthority)new SimpleGrantedAuthority(authority.getNombre());
             grantList.add(grantedAuthority);
 		}
-		final UserDetails empresa = (UserDetails) new  User(appUser.getEmail(), appUser.getPassword(), (Collection)grantList);
+		UserDetails empresa = (UserDetails) new  User(appUser.getEmail(), appUser.getPassword(), (Collection)grantList);
 		return empresa;
 	}
 }
